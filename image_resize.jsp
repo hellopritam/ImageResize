@@ -55,7 +55,6 @@
   FileItem file1 = (FileItem) items.get(0);
   FileItem file2 = (FileItem) items.get(1);
   String path=request.getRealPath("/img/")+app_id;
-  out.println(path);
   String p=path+"pho.jpg";
   InputStream is=file1.getInputStream();
   File f=new File(p);
@@ -78,13 +77,6 @@
   File signature=new File(path+"sig.jpg");
   resize(photo,path+"pho.jpg" , 200, 200);//this pic will be saved with appid
   resize(signature,path+"sig.jpg", 300, 100);
-  try{
-  PreparedStatement ps=con.prepareStatement("insert into student_image values(?,?)");
-  ps.setString(1,app_id);
-  ps.setString(2,dob);
-  int i=ps.executeUpdate();
-  
-  }catch(Exception e){out.print(e);}
  // response.sendRedirect("payment.jsp");//if properly uploaded
 %>
 
